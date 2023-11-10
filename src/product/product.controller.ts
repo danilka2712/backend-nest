@@ -22,23 +22,27 @@ export class ProductController {
     return this.productService.create(createProductDto);
   }
 
+  @Public()
   @Get()
   findAll() {
     return this.productService.findAll();
   }
 
+  @Public()
   @Get(":id")
   findOne(@Param("id") id: string) {
-    return this.productService.findOne(+id);
+    return this.productService.findOne(id);
   }
 
+  @Public()
   @Patch(":id")
   update(@Param("id") id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productService.update(+id, updateProductDto);
+    return this.productService.update(id, updateProductDto);
   }
 
+  @Public()
   @Delete(":id")
   remove(@Param("id") id: string) {
-    return this.productService.remove(+id);
+    return this.productService.remove(id);
   }
 }
